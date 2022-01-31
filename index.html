@@ -1,34 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-     <title>Title goes here</title>
+     <title>Dom Play: BLACK SWAN</title>
   <meta charset="utf-8" />
   <meta name="robots" content="noindex,nofollow" />
   <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/nav.css" />
-  <link rel="stylesheet" href="JS/main.js" />
+  <link rel="stylesheet" href="JS/domplay.js" />
+  
+  
+   <style>
+/*
+    div#play span{
+    background-color: yellow;
+  }
+*/
+  </style> 
+
+
+  
 </head>
 
  <body>
      <header>
-     <h1>Title goes here</h1>
-        <nav class="topnav" id="myTopnav">
-            <a href="index.html" class="active">Home</a>
-            <a href="index.html" target="_blank">name of project goes here</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-        </nav>
-     </header>
+     <h1>Dom Play</h1>
+     
+            </header>
      
    <main class="wrapper">
-      
-       <h2 class="subheader">Title goes here</h2>
-       
-     
-       <p>content goes here</p>
+      <p>
+      This page uses JS, to allow a user to click on the name of an actor and highlight their lines in a play. This page uses data attributes and an anonymous function to look through a node list and compare data attributes to highlight or unhighlight text.
+      </p>
 
+     <div id="play">
+      <p><span data-actor="erica">Erica:  You're in a good mood.</span></p>
+      <p><span data-actor="nina">Nina: I'm just excited to get back.</span></p>
+      <p><span data-actor="erica">Erica: Off-season always makes you grumpy.</span></p>
+      <p><span data-actor="nina">Nina: Look how pink. So pretty.</span></p>
+      <p><span data-actor="erica">Erica: Pretty. Pretty.</span></p>
+      <p><span data-actor="nina">Nina: Plus he promised to feature me more.</span></p>
+      <p><span data-actor="erica">Erica: He certainly should. You're the most dedicated dancer in the company.</span></p>
+      <p><span data-actor="nina">Nina: Plus he promised to feature me more.</span></p>
+
+      <br>
+      <p><span data-actor="veronica">Veronica: Can't believe she's back.</span></p>
+      <p><span data-actor="galina">Galina: Of course she is.</span></p>
+      <p><span data-actor="veronica">Veronica: She can't take a hint? Company's broke. No one comes to see her anymore.</span></p>
+      <p><span data-actor="soloist1">Soloist 1: No one comes to see ballet period.</span></p>
+      <p><span data-actor="veronica">Veronica: That's not true, I heard the Royal had one of their best seasons yet.</span></p>
+      <p><span data-actor="galina">Galina: He needs to try something new.</span></p>
+      <p><span data-actor="veronica">Veronica: No, someone new.</span></p>
+      <p><span data-actor="soloist1">Soloist 1: Like who?</span></p>
+      <p><span data-actor="veronica">Veronica: Like someone who's not approaching menopause.</span></p>
+      <p><span data-actor="nina">Nina: I think it's sad.</span></p>
+      <p><span data-actor="veronica">Veronica: What's sad?</span></p>
+      <p><span data-actor="nina">Nina: Beth's such an amazing dancer.</span></p>
+      <p><span data-actor="galina">Galina: So's my grand-mother.</span></p>
+      <p><span data-actor="nina">Nina: Fonteyn danced into her 50's...</span></p>
+
+      <br>
+      <p><span data-actor="veronica">Veronica: Yeah, we know.</span></p>
+      <p><span data-actor="newgirl">New Girl: Soloists?</span></p>
+      <p><span data-actor="balletmistress">Ballet Mistress: We all know the story: virginal girl, pure and sweet, trapped in the body of a swan. She desires freedom, but only true love can break the spell.</span></p>
+      <p><span data-actor="leroy">Leroy: Her wish is granted in the form of a prince.</span></p>
+      <p><span data-actor="newgirl">New Girl: But before he can declare his love, her lustful twin, the Black Swan, tricks and seduces him.</span></p>
       
-     <footer>
+    </div>
+
+      <footer>
       <p><small>&copy; 2021 by 
          Chanel Bumatay, All Rights Reserved ~ 
           <a id="html-checker" href="#">Check HTML</a> ~ 
@@ -36,6 +76,38 @@
      </p>
     </footer>
   </main>
-  <script src="JS/main.js"></script>  
+  <script>
+
+
+      const spans = document.querySelectorAll('div#play span');
+      console.log(spans);
+
+      for(const mySpan of spans){
+        mySpan.addEventListener('click',function(ev){
+            //alert(myspan.dataset.actor);
+
+          highlightActor(mySpan.dataset.actor);
+
+        }); 
+      }
+
+      function highlightActor(actor){
+
+        for(const mySpan of spans){
+          if(actor == mySpan.dataset.actor){
+          mySpan.style.backgroundColor = "yellow";
+        }else{
+          mySpan.style.backgroundColor = "white";
+      }
+    }
+  }
+
+
+
+ 
+
+    //document.querySelector("span.nina").style.backgroundColor = "yellow";
+  </script>
+  <script src="JS/domplay.js"></script>  
  </body>
 </html>
